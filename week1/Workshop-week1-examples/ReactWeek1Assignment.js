@@ -13,7 +13,9 @@ class Bootcamp {
         this.students = students;
     }
     registerStudent(student) {
-        if (this.students.filter(s => s.email === student.email).length) {  /* alternatively could use this.students.includes, or another option - but it's a good chance to practice more filter */
+        const registeredStudent = this.students.filter(s => s.email === student.email).length
+        console.log(registeredStudent)
+        if (registeredStudent) {  /* alternatively could use this.students.includes, or another option - but it's a good chance to practice more filter */
             console.log(`The student ${student.email} is already registered!`);
         } else {
             this.students.push(student);
@@ -22,4 +24,12 @@ class Bootcamp {
         return this.students;
     }
 }
+
+
+const bridget = new Student('bridget', 'whatever@aol.com', 'nice people')
+const chris = new Student('chris', 'stuff@pets.com', 'coffe-lovers')
+
+const react = new Bootcamp('react', 'beginner', [bridget, chris])
+
+react.registerStudent(chris)
 

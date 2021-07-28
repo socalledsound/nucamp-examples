@@ -1,3 +1,33 @@
+
+const initialState = 0
+const myReducer = (highestYet, current) => {
+    if(current > highestYet){
+        return current
+    } else {
+        return highestYet
+    }
+    
+}
+
+const min = [3,4,7,2,8].reduce(myReducer)
+
+console.log(min)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function add(a, b) {
     return a + b;
 }
@@ -29,4 +59,4 @@ const sampleArray = [1, 2, 3, 4];
 const mult2 = sampleArray.reduce((acc, val) => {
     return acc * val
 })
-console.log('or mult2: ', mult2);
+//console.log('or mult2: ', mult2);

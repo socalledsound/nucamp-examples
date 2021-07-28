@@ -1,8 +1,8 @@
 class Bike {
-   constructor(color, electric){
+   constructor(color, electric, model){
         this.color = color;
         this.electric = electric;
-        
+        this.model = model;
    } 
    start(){
         console.log('you being pedaling')
@@ -11,6 +11,41 @@ class Bike {
        console.log(`color: ${this.color}, electric: ${this.electric}`)
    }
 }
+
+
+class BeaterBike extends Bike{
+    constructor(color, electric, model, beater){
+        super(color, electric, model);
+        this.beater = beater
+    }
+
+    getInfo(){
+        super.getInfo()
+        console.log(`beater status:  ${this.beater}`)
+    }
+}
+
+
+
+
+// const myOldBeaterBike = new Bike('purple', false, 'schwinn', true);
+myOldBeaterBike.getInfo()
+
+
+
+class App extends Component {
+    constructor(){
+        super(props)
+        this.state = {
+
+        }
+    }
+
+    render(){
+        
+    }
+}
+
 
 
 class ElectricBike extends Bike {
@@ -29,7 +64,7 @@ class ElectricBike extends Bike {
 const goodOldBike = new Bike('red', false)
 const electricBike = new ElectricBike('green', true)
 
-goodOldBike.getInfo()
-electricBike.getInfo()
-goodOldBike.start()
-electricBike.start()
+// goodOldBike.getInfo()
+// electricBike.getInfo()
+// goodOldBike.start()
+// electricBike.start()
