@@ -1,8 +1,7 @@
-// a utility function to generate a random color
 const getRandomColor = () => `#${Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0")}`
-//get a ref to the root div in our html fil
+
 const root = document.getElementById('root')
-// some data.  add some more if you want to!
+
 const peopleArr  = [
     {
         username:    'glestrade',
@@ -27,7 +26,6 @@ const peopleArr  = [
     },
 ];
 
-//this function takes in some data and uses it to generat some html
 const createItem = (person) => {
     const container = document.createElement('div')
     container.classList.add('container')
@@ -35,12 +33,8 @@ const createItem = (person) => {
     console.log(person)
     const keys = Object.keys(person)
     console.log(keys)
-    //notice that I'm using .map to generate a paragraph element for
-    // each key in the person object that gets passed in to this function
     const textEls = keys.map( () => document.createElement('p'))
     console.log(textEls)
-    // for each is another array method that you should use 
-    // when you don't return anything 
     keys.forEach((key, i) => {
         if(person[key] != null){
         const trimmed = person[key].substring(0, 15)
@@ -51,16 +45,12 @@ const createItem = (person) => {
 
     })
     
-    // each time this function is invoked it will return a div
     console.log(container)
     return container
 }
 
-// add one line of code here
-// which transforms the peopleArr into html
-// using the function above!
 
+const divs = peopleArr.map((person, i) => createItem(person))
 
-// and then, after the mystery line of code, we take the array that has
-// been generated and .forEach element, append it to the root div in the html!
+console.log(divs)
 divs.forEach((div) => root.appendChild(div))

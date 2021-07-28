@@ -13,7 +13,7 @@ class ArrayFromScratch {
         this.length ++
     }
 
-    map(anyFunction){
+    map(cb){
         const newArray = []
         for(let i = 0; i < this.length; i++){
             newArray[i] = cb(this.data[i], i)

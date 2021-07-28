@@ -42,7 +42,7 @@ const matrix = Array(5).fill(0).map(() => Array(5).fill(0));
 
 
 const sequentialArr = Array.from({length : 20}, (el, i) => i )
-// console.log(sequentialArr)
+//console.log(sequentialArr)
 
 
 const getRandomInt = () => Math.floor(Math.random() * 100)
@@ -58,6 +58,11 @@ const arrItemsTimes100 = randArray.map( item => item * 100)
 
 const greaterThan50 = randArray.filter((el) => el > 50)
 // console.log(greaterThan50)
+
+
+const equalsSix = sequentialArr.filter( item => item === 6)[0]
+//console.log(equalsSix)
+
 
 const betweenTenandTwenty = randArray.filter((item, index) => item >=10 && item <=20)
 
@@ -90,8 +95,9 @@ const peopleArr  = [
 
 
 const loginName = 'mholmes'
-const currentUser = peopleArr.filter((el) => el.username === loginName ) 
-// console.log(currentUser)
+const currentUser = peopleArr.filter((el) => el.username === loginName )[0] 
+console.log(currentUser)
+console.log(currentUser.authHash)
 
 // see challenge
 // see mapping-dom-example
@@ -145,7 +151,7 @@ const min = randArray.reduce((acc, cur) => {
 const chainedMostRecent = peopleArr.filter( (person) => (person.email !== null) && (person.email !== undefined))
                                     .map((person) => person.lastSeen)
                                     .reduce((a, b) => a > b ? a : b)
-// console.log(chainedMostRecent)
+console.log(chainedMostRecent)
 
 
 
@@ -160,10 +166,31 @@ const notEmptyEmail = (x) =>  (x.email !== null) && (x.email !== undefined)
 const lastSeen = (a, b) => a.lastSeen > b.lastSeen ? a : b;
 
 const mostRecent = peopleArr.reduce((currentMostRecent, person) => {
-    console.log(currentMostRecent)
+    // console.log(currentMostRecent)
     return (notEmptyEmail(person))
         ? lastSeen(currentMostRecent, person)
         : currentMostRecent      
 })
 
-console.log(mostRecent.lastSeen)
+// console.log(mostRecent.lastSeen)
+
+
+
+
+//update one item in object using.reduce
+const userNameToUpdate = 'iadler'
+const emailToAdd = 'iadler@hotmail.com'
+const updatedPeopleArr = peopleArr.reduce((updatedItems, item ) => {
+    // console.log(updatedItems)
+    const itemToUpdate = item.username === userNameToUpdate
+    console.log(itemToUpdate)
+    if(itemToUpdate) {
+        updatedItems.push({...item, email: emailToAdd})
+        return updatedItems
+    }else{
+        updatedItems.push(item)
+        return updatedItems
+    }
+    }, [])
+
+//  console.log(updatedPeopleArr)   

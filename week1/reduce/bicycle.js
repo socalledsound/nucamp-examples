@@ -1,6 +1,7 @@
 const bicycle = {  
     color: 'blue',   
     electric: false,  
+    hello = (greeting) => console.log(greeting), 
     start() 
     {       
         console.log('You begin to pedal the bike.');  
